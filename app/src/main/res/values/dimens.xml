@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_size">5dp</dimen>
+    <dimen name="padding_size_fr2">50dp</dimen>
+    <dimen name="text_size">48dp</dimen>
+    <dimen name="text_size_fr2">150dp</dimen>
+</resources>
