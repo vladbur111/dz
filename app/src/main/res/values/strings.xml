@@ -1,7 +1,7 @@
 <resources>
     <string name="frag1_text">Fragment 1</string>
     <string name="frag2_text">Fragment 2</string>
-    <string name="log">Log</string>
+    <string name="btn_add">Add</string>
     <string name="find">Find</string>
     <string name="text">Sample text</string>
 </resources>

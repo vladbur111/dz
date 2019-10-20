@@ -1,60 +1,50 @@
 package com.example.fragments;
 
 import android.graphics.Color;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataSource {
-
-    private final List<MyData> mData;
-    private static DataSource sInstance;
-
+    private final List<MyData> listData;
+    private static DataSource dataInstance;
+    private int dataPosition = 0;
 
     public DataSource() {
-        mData = new ArrayList<>();
-    /*
-        for (int i = 0; i < 100; i++) {
-            mStrings[i] = String.valueOf(i+1);
-            if (i % 2 == 0)
-                mData.add(new MyData(mStrings[i], Color.BLUE));
-            else
-                mData.add(new MyData(mStrings[i], Color.RED));
-        }
-    */
+        listData = new ArrayList<>();
     }
 
     public List<MyData> getData() {
-        return mData;
+        return listData;
     }
 
-    public int pushData(int nums) {
-        if (nums <= 100) {
-            if (nums % 2 == 0)
-                mData.add(new MyData(String.valueOf(nums), Color.RED));
+    public int pushData(int num) {
+        if (num <= 100) {
+            if (num % 2 == 0)
+                listData.add(new MyData(String.valueOf(num), Color.RED));
             else
-                mData.add(new MyData(String.valueOf(nums), Color.BLUE));
+                listData.add(new MyData(String.valueOf(num), Color.BLUE));
         }
-        return nums-1;
+
+        dataPosition = num-1;
+        return dataPosition;
     }
 
-
-    public synchronized static DataSource getInstance() {
-        if (sInstance == null) {
-            sInstance = new DataSource();
-        }
-        return sInstance;
-    }
 
     public static class MyData {
+        String mTitle;
+        int mColor;
+
         public MyData(String title, int color) {
             mTitle = title;
             mColor = color;
         }
-
-        String mTitle;
-        int mColor;
     }
 
+    public synchronized static DataSource getInstance() {
+        if (dataInstance == null) {
+            dataInstance = new DataSource();
+        }
+        return dataInstance;
+    }
 
 }
